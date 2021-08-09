@@ -1,0 +1,24 @@
+
+.container-fluid {
+    padding: 1% 2%;
+}
+
+#logo {
+    min-width: 162px;
+    min-height: 150px;
+}
+
+#logo img {
+    width: 162px;
+    height: 150px;
+}
+
+a.more-info-icon {
+  color: inherit;
+  text-decoration: inherit;
+}
+.image-show{
+    width: 500px;
+    height: auto;
+    margin: 20px ;
+}

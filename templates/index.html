@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>GenoCap</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/webapp.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="static/js/webapp.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row py-2">
+
+
+            <div id="logo" class="col-md ">
+                <a href="/">
+                    <img src="static/img/logo.jpg"/>
+                </a>
+            </div>
+
+            <div class="col-md-6 py-4 px-8">
+                <h1>GenoCap</h1>
+                <h4>Image Caption Generator</h4>
+            </div>
+
+
+            <div class="col-md-4 rounded-start border border-3 px-0">
+
+                <div id="file-upload" class="panel panel-default ">
+
+                    <div class="panel-heading bg-light py-2  px-2 ">
+                        <div class="text-md fs-5">
+                            Upload A New Image
+                        </div>
+
+                    </div>
+
+                    <div class="panel-body px-2">
+                        <form action="/" method="POST" enctype="multipart/form-data">
+                            <div class="form-group py-2">
+                                <input id="file-input"
+                                        type="file"
+                                        name="image"
+                                        accept=".png, .jpg, .jpeg"
+                                        multiple />
+                            </div>
+                            <button  type="submit" class="btn btn-dark px-2">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            {% if path %}
+            <div class="col-md-5">
+                <div >
+                    
+                    <img  class = 'image-show rounded img-thumbnail' src="{{ path }}" alt=""> 
+                          
+                </div>
+            </div>
+            <div class="col-md my-auto">
+                <div class = "row pt fs-5 mb-5">
+                    <div >
+                        <h2>Possible Caption Genertated are : </h2>
+                    </div>
+                    
+                    <ul>
+                        {% for cap in caption  %}
+                            <li>{{cap}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="select-buttons">
+                        {% if path %}
+                            <a href="/">
+                            <button  class="btn btn-dark " style="float: inline-end;" >
+                                Delete Uploaded Images
+                            </button>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+</body>
+
+</html>
